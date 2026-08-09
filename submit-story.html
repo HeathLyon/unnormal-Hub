@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Submit a strange, paranormal, or unexplained story to Unnormal Stories." />
+  <title>Submit a Story — Unnormal Stories</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true">
+    <span class="glow glow-one"></span>
+    <span class="glow glow-two"></span>
+    <span class="scanlines"></span>
+    <span class="grain"></span>
+  </div>
+
+  <header class="site-header">
+    <a class="main-wordmark split-wordmark" href="index.html#home" aria-label="Unnormal Stories home">
+      <img class="wordmark-unnormal" src="assets/Unnormal_Transparent.png" alt="Unnormal" />
+      <img class="wordmark-stories" src="assets/Stories_Transparent.png" alt="Stories" />
+      <span class="sr-only">Unnormal Stories</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html#seasons">Seasons</a>
+      <a href="index.html#season">Season 3</a>
+      <a href="index.html#submit">Submit</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="form-page">
+    <div class="form-shell">
+      <section class="form-intro">
+        <a class="back-link" href="index.html#submit">← Back to the site</a>
+        <p class="eyebrow">LISTENER STORY SUBMISSION</p>
+        <h1>Tell us what happened.</h1>
+        <p>
+          Share as much or as little detail as you are comfortable with. Dates, locations,
+          witnesses, photos, recordings, and anything you noticed before or after the event can help.
+        </p>
+        <p>
+          This version prepares the information as an email on your device, so you can review everything before sending.
+        </p>
+
+        <div class="form-email-box">
+          <span>Direct email</span>
+          <a href="mailto:unnormalstories@gmail.com">unnormalstories@gmail.com</a>
+        </div>
+      </section>
+
+      <form class="story-form" id="storyForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Name or nickname" />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Your email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-field">
+            <label for="storyType">Type of story</label>
+            <select id="storyType" name="storyType" required>
+              <option value="">Choose one</option>
+              <option>Paranormal / haunting</option>
+              <option>UFO / UAP</option>
+              <option>Cryptid / creature</option>
+              <option>Strange history / local legend</option>
+              <option>Unusual true crime lead</option>
+              <option>Dream / coincidence / high strangeness</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text" placeholder="City, state, area, or landmark" />
+          </div>
+
+          <div class="form-field">
+            <label for="date">Approximate date</label>
+            <input id="date" name="date" type="text" placeholder="Example: Summer 2022" />
+          </div>
+
+          <div class="form-field">
+            <label for="witnesses">Other witnesses</label>
+            <input id="witnesses" name="witnesses" type="text" placeholder="None, one friend, several people..." />
+          </div>
+
+          <div class="form-field full">
+            <label for="summary">Short summary</label>
+            <input id="summary" name="summary" type="text" maxlength="140" placeholder="One sentence describing what happened" required />
+            <p class="form-help">Keep this brief. You can tell the full story below.</p>
+          </div>
+
+          <div class="form-field full">
+            <label for="story">Full story</label>
+            <textarea id="story" name="story" placeholder="What happened? What did you see, hear, feel, or notice? Include the sequence of events and anything that might matter." required></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label for="evidence">Photos, recordings, documents, or other evidence</label>
+            <textarea id="evidence" name="evidence" placeholder="Describe what you have. You can attach files manually after your email app opens."></textarea>
+          </div>
+
+          <div class="form-field full">
+            <label for="followup">Anything else we should know?</label>
+            <textarea id="followup" name="followup" placeholder="Background, possible explanations, follow-up events, related local stories, etc."></textarea>
+          </div>
+        </div>
+
+        <div class="check-row">
+          <input id="anonymous" name="anonymous" type="checkbox" />
+          <label for="anonymous">
+            If this story is used publicly, I would prefer my name to remain anonymous.
+          </label>
+        </div>
+
+        <div class="check-row">
+          <input id="contactPermission" name="contactPermission" type="checkbox" />
+          <label for="contactPermission">
+            You may contact me with follow-up questions about this submission.
+          </label>
+        </div>
+
+        <div class="check-row">
+          <input id="permission" name="permission" type="checkbox" required />
+          <label for="permission">
+            I understand that submitting this form sends my story to Unnormal Stories for review and possible research or discussion.
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-red" type="submit">Prepare Email</button>
+          <a class="btn btn-outline" href="mailto:unnormalstories@gmail.com">Email Directly</a>
+        </div>
+
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

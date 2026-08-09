@@ -1929,3 +1929,222 @@ body.intro-running{
     transition:none;
   }
 }
+
+
+/* =========================================================
+   V10.4 — CONTACT EMAIL + STORY SUBMISSION FORM
+   ========================================================= */
+
+.contact-email{
+  margin-top:1rem;
+  color:#bfcbd0;
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.contact-email a{
+  color:#d8caee;
+  text-decoration:none;
+  border-bottom:.08rem solid rgba(216,202,238,.42);
+}
+
+.contact-email a:hover{
+  color:var(--white);
+  border-bottom-color:var(--red);
+}
+
+.form-page{
+  position:relative;
+  z-index:2;
+  min-height:100dvh;
+  padding:calc(var(--header-h) + 2.2rem) var(--page-x) 3rem;
+}
+
+.form-shell{
+  width:min(72rem,94vw);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) minmax(20rem,1.28fr);
+  gap:clamp(1.5rem,4vw,4rem);
+  align-items:start;
+}
+
+.form-intro{
+  position:sticky;
+  top:calc(var(--header-h) + 1.2rem);
+}
+
+.form-intro h1{
+  font-size:clamp(2.4rem,4vw,4.2rem);
+}
+
+.form-intro p:not(.eyebrow){
+  color:#c2cfd2;
+  font-size:.9rem;
+  max-width:30rem;
+}
+
+.form-email-box{
+  margin-top:1rem;
+  padding:.9rem 1rem;
+  border:.08rem solid rgba(171,158,210,.25);
+  background:rgba(31,20,43,.44);
+}
+
+.form-email-box span{
+  display:block;
+  margin-bottom:.28rem;
+  color:#aa9bcf;
+  font-size:.5rem;
+  font-weight:900;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.form-email-box a{
+  color:var(--white);
+  text-decoration:none;
+  font-weight:800;
+  word-break:break-word;
+}
+
+.story-form{
+  padding:clamp(1rem,2vw,1.8rem);
+  border:.1rem solid rgba(223,234,236,.3);
+  background:rgba(11,15,18,.88);
+  box-shadow:.8rem .8rem 0 rgba(74,42,103,.14);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.9rem;
+}
+
+.form-field{
+  min-width:0;
+}
+
+.form-field.full{
+  grid-column:1/-1;
+}
+
+.form-field label{
+  display:block;
+  margin-bottom:.35rem;
+  color:#cbbfe0;
+  font-size:.55rem;
+  font-weight:900;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width:100%;
+  min-width:0;
+  border:.08rem solid rgba(223,234,236,.25);
+  border-radius:0;
+  background:#111821;
+  color:var(--white);
+  font:inherit;
+  font-size:.82rem;
+  padding:.72rem .78rem;
+  outline:none;
+}
+
+.form-field textarea{
+  min-height:10rem;
+  resize:vertical;
+  line-height:1.5;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  border-color:#aa9bcf;
+  box-shadow:0 0 0 .12rem rgba(126,100,170,.14);
+}
+
+.form-help{
+  margin:.35rem 0 0;
+  color:#879ba0;
+  font-size:.64rem;
+  line-height:1.45;
+}
+
+.check-row{
+  display:flex;
+  align-items:flex-start;
+  gap:.6rem;
+  padding:.75rem 0;
+}
+
+.check-row input{
+  width:1rem;
+  height:1rem;
+  margin-top:.12rem;
+  accent-color:var(--red);
+}
+
+.check-row label{
+  color:#c4d0d3;
+  font-size:.74rem;
+  line-height:1.45;
+}
+
+.form-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.65rem;
+  margin-top:1rem;
+}
+
+.form-status{
+  min-height:1.4rem;
+  margin-top:.75rem;
+  color:#b9a8d8;
+  font-size:.7rem;
+}
+
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  margin-bottom:1.2rem;
+  color:#ab9ed2;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:.55rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.back-link:hover{
+  color:var(--white);
+}
+
+@media (max-width:61.99rem){
+  .form-shell{
+    grid-template-columns:1fr;
+  }
+
+  .form-intro{
+    position:static;
+  }
+}
+
+@media (max-width:47.5rem){
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-field.full{
+    grid-column:auto;
+  }
+
+  .story-form{
+    padding:.9rem;
+  }
+}

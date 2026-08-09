@@ -186,3 +186,60 @@ if (coverStack && coverCards.length === 3) {
     window.setTimeout(() => applyCoverOrder(coverPositions), 120);
   });
 }
+
+
+/* =========================================================
+   STORY FORM — static-site mailto builder
+   ========================================================= */
+const storyForm = document.getElementById("storyForm");
+
+if (storyForm) {
+  storyForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (!storyForm.reportValidity()) return;
+
+    const data = new FormData(storyForm);
+    const get = key => (data.get(key) || "").toString().trim();
+
+    const subjectSummary = get("summary") || "Listener Story Submission";
+    const subject = `Unnormal Stories Submission — ${subjectSummary}`.slice(0, 150);
+
+    const body = [
+      "UNNORMAL STORIES — LISTENER STORY SUBMISSION",
+      "",
+      `Name: ${get("name") || "Not provided"}`,
+      `Email: ${get("email") || "Not provided"}`,
+      `Story type: ${get("storyType") || "Not provided"}`,
+      `Location: ${get("location") || "Not provided"}`,
+      `Approximate date: ${get("date") || "Not provided"}`,
+      `Other witnesses: ${get("witnesses") || "Not provided"}`,
+      "",
+      "SHORT SUMMARY",
+      get("summary") || "Not provided",
+      "",
+      "FULL STORY",
+      get("story") || "Not provided",
+      "",
+      "EVIDENCE / MEDIA",
+      get("evidence") || "None described",
+      "",
+      "ADDITIONAL INFORMATION",
+      get("followup") || "None",
+      "",
+      `Prefers anonymity: ${data.get("anonymous") ? "Yes" : "No"}`,
+      `Permission to contact: ${data.get("contactPermission") ? "Yes" : "No"}`,
+      "",
+      "Generated from the Unnormal Stories website submission form."
+    ].join("\n");
+
+    const mailto = `mailto:unnormalstories@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    const status = document.getElementById("formStatus");
+    if (status) {
+      status.textContent = "Opening your email app with the form information. Review it, attach any files, and send when ready.";
+    }
+
+    window.location.href = mailto;
+  });
+}
