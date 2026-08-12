@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Search the Unnormal Stories episode archive, open research notes, review sources, and listen on Spotify." />
+  <title>Episode Archive — Unnormal Stories</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="archive-page">
+  <div class="ambient-bg" aria-hidden="true">
+    <span class="glow glow-one"></span>
+    <span class="glow glow-two"></span>
+    <span class="scanlines"></span>
+    <span class="grain"></span>
+  </div>
+
+  <header class="site-header">
+    <a class="main-wordmark split-wordmark" href="index.html#home" aria-label="Unnormal Stories home">
+      <img class="wordmark-unnormal" src="assets/Unnormal_Transparent.png" alt="Unnormal" />
+      <img class="wordmark-stories" src="assets/Stories_Transparent.png" alt="Stories" />
+      <span class="sr-only">Unnormal Stories</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html#seasons">Seasons</a>
+      <a href="index.html#season">Season 3</a>
+      <a href="archive.html" aria-current="page">Archive</a>
+      <a href="index.html#submit">Submit</a>
+      <a href="index.html#links">Links</a>
+    </nav>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="archive-main">
+    <section class="archive-snap" aria-labelledby="catalogTitle">
+      <div class="archive-shell archive-snap-shell">
+        <div class="archive-snap-head reveal">
+          <div class="archive-title-block">
+            <p class="eyebrow">CASE FILES // ALL SEASONS</p>
+            <h1 id="catalogTitle">The Unnormal Archive</h1>
+            <p>Search episodes, findings, source names, places, and tags.</p>
+          </div>
+
+          <div class="archive-picks" aria-label="Episode discovery">
+            <article class="archive-pick latest-pick" id="latestEpisode" aria-live="polite">
+              <p class="loading-copy">Loading latest…</p>
+            </article>
+            <article class="archive-pick featured-pick" id="featuredEpisode" aria-live="polite">
+              <p class="loading-copy">Selecting random file…</p>
+            </article>
+            <button class="pick-reroll" id="rerollFeatured" type="button">↻ New random file</button>
+          </div>
+        </div>
+
+        <div class="archive-search-panel reveal" role="search">
+          <label class="search-label" for="archiveSearch">Search the archive</label>
+          <div class="search-row">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="archiveSearch" type="search" autocomplete="off" placeholder="Try: folklore, Vermont, sound, numerology…" />
+            <button id="clearArchiveSearch" class="search-clear" type="button">Clear</button>
+          </div>
+          <div class="tag-filter" id="tagFilter" aria-label="Filter episodes by tag"></div>
+        </div>
+
+        <div class="catalog-status-row">
+          <div class="catalog-status" id="catalogStatus" aria-live="polite">Loading archive files…</div>
+          <div class="archive-stats" aria-label="Archive statistics">
+            <span><strong id="archiveTotal">—</strong> files</span>
+            <span><strong id="archiveTagTotal">—</strong> tags</span>
+          </div>
+        </div>
+
+        <div class="episode-grid" id="episodeGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <span>NO SIGNAL FOUND</span>
+          <h3>No files match that search.</h3>
+          <p>Try a broader word or clear the selected tag.</p>
+          <button class="btn btn-outline" id="emptyReset" type="button">Reset the archive</button>
+        </div>
+
+        <footer class="archive-inline-footer">
+          <span>UNNORMAL STORIES // RESEARCH ARCHIVE</span>
+          <a href="index.html#submit">Have a lead? Send your story →</a>
+          <span>Powered by <a href="https://www.supermassive-hd.com" target="_blank" rel="noopener noreferrer">SuperMassive-HD</a></span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="episode-dialog" id="episodeDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close" id="dialogClose" type="button" aria-label="Close episode file">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="archive.js"></script>
+</body>
+</html>

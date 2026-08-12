@@ -1,6 +1,45 @@
 document.documentElement.classList.add("js");
 
 /* =========================================================
+   SOCIAL LINKS — EDIT THESE URLS
+   Paste the real URL between the quotes.
+   Leave blank ("") until you have the link.
+   ========================================================= */
+const SOCIAL_LINKS = {
+  youtube: "https://www.youtube.com/@unnormalstories9051",
+  instagram: "",       // Example: https://www.instagram.com/unnormalstories/
+  coffee: "",          // Example: https://www.buymeacoffee.com/unnormalstories
+  spotify: "https://podcasters.spotify.com/pod/show/unnormalstories",
+  apple: "",
+  reddit: ""
+};
+
+function applySocialLinks() {
+  document.querySelectorAll("[data-social]").forEach(link => {
+    const key = link.dataset.social;
+    const url = SOCIAL_LINKS[key] || "";
+
+    if (url) {
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.classList.remove("is-unset");
+    } else {
+      link.href = "#";
+      link.classList.add("is-unset");
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+
+      link.addEventListener("click", event => {
+        event.preventDefault();
+      });
+    }
+  });
+}
+
+
+
+/* =========================================================
    INTRO — runs first so the overlay can never get stuck
    ========================================================= */
 const logoIntro = document.getElementById("logoIntro");
@@ -243,3 +282,7 @@ if (storyForm) {
     window.location.href = mailto;
   });
 }
+
+
+/* Apply configured platform URLs. */
+applySocialLinks();

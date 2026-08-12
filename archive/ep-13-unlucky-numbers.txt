@@ -1,0 +1,21 @@
+TITLE: Ep. 9 — The Hum
+SLUG: ep-09-the-hum
+EPISODE: 9
+SEASON: 2
+PUBLISHED: 2025-06-21
+DURATION: 1:16:13
+TAGS: the hum, unexplained sound, Taos, Kokomo, Bristol, infrasound, environmental mystery
+SPOTIFY: https://podcasters.spotify.com/pod/show/unnormalstories/episodes/Ep--9---The-Hum-e34iatd
+---
+SUMMARY
+Can you hear it? Jace and Ben investigate reports of a persistent low-frequency sound known as “The Hum,” comparing famous clusters and the explanations proposed for them.
+
+FINDINGS
+- Reports called “The Hum” may not all share one cause; industrial sources, tinnitus, environmental sound, and expectation can overlap.
+- Geographic clusters such as Taos, Kokomo, and Bristol turned a private sensory experience into a public mystery.
+- Add the team’s audio tests, corrections, and conclusions here.
+
+SOURCES
+- Live Science — What Is the Mysterious Hum? | https://www.livescience.com/38427-the-hum-mystery-taos-hum.html
+- The Conversation — The worldwide mystery of the Hum | https://theconversation.com/the-hum-the-mysterious-low-frequency-noise-that-drives-some-people-crazy-168556
+- Episode audio attribution and complete bibliography should be added here.

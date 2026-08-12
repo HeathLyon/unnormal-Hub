@@ -1,0 +1,37 @@
+UNNORMAL STORIES ARCHIVE — ADDING AN EPISODE
+
+1. Duplicate one of the .txt files inside the archive folder.
+2. Rename it with a short lowercase filename, such as:
+   ep-14-the-reptilians.txt
+3. Update every field above the --- divider.
+4. Add the episode summary, findings, and source links below the divider.
+5. Open archive.js and add the new file path to ARCHIVE_FILES near the top.
+
+TEXT FILE FORMAT
+
+TITLE: Ep. 14 — Episode Title
+SLUG: ep-14-episode-title
+EPISODE: 14
+SEASON: 3
+PUBLISHED: 2026-08-11
+DURATION: 1:05:00
+TAGS: conspiracy, folklore, listener stories
+SPOTIFY: https://podcasters.spotify.com/your-episode-link
+---
+SUMMARY
+Write a short public summary here.
+
+FINDINGS
+- Add one finding per line.
+- Findings become searchable.
+
+SOURCES
+- Source name | https://example.com/source
+- Add one source per line. Include the vertical bar between its name and URL.
+
+SEARCH BEHAVIOR
+
+The catalog searches episode titles, tags, summaries, findings, source names,
+season numbers, and episode numbers. The newest PUBLISHED date automatically
+becomes the Latest Episode. The Featured Episode is selected randomly whenever
+the page is loaded or the Randomize button is pressed.
