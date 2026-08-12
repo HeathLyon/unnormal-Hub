@@ -1,21 +1,21 @@
-TITLE: Ep. 13 — Unlucky Numbers
-SLUG: ep-13-unlucky-numbers
-EPISODE: 13
+TITLE: Ep. 7 — The Bennington Triangle
+SLUG: ep-07-bennington-triangle
+EPISODE: 7
 SEASON: 2
-PUBLISHED: 2025-09-13
-DURATION: 58:56
-TAGS: unlucky numbers, superstition, numerology, folklore, coincidence, listener question
-SPOTIFY: https://podcasters.spotify.com/pod/show/unnormalstories/episodes/Ep--13---Unlucky-Numbers-e385mmn
+PUBLISHED: 2025-06-08
+DURATION: 2:01:55
+TAGS: Bennington Triangle, Vermont, disappearances, Glastenbury Mountain, folklore, wilderness, season 2
+SPOTIFY: https://podcasters.spotify.com/pod/show/unnormalstories/episodes/Ep--7---The-Bennington-Triangle-e33uk0o
 ---
 SUMMARY
-Jace and Ben follow the strange luck, fear, folklore, and personal meaning people attach to particular numbers—and ask listeners which numbers feel lucky or unlucky to them.
+The Season 2 opener follows the disappearances and folklore associated with the so-called Bennington Triangle around Glastenbury Mountain, Vermont.
 
 FINDINGS
-- Numbers become “lucky” or “cursed” through a mixture of culture, religion, pattern recognition, and memorable coincidence.
-- The same number can carry opposite meanings in different places, making number superstition a useful case study in how beliefs spread.
-- Add the team’s final conclusions, corrections, and follow-up discoveries here.
+- The “triangle” is a later label applied to several disappearances rather than an official historical region.
+- Dense terrain, incomplete records, and retellings complicate efforts to separate the documented cases from accumulated legend.
+- Add the hosts’ final case-by-case findings and any local follow-up here.
 
 SOURCES
-- Britannica — Triskaidekaphobia | https://www.britannica.com/science/triskaidekaphobia
-- Merriam-Webster — Triskaidekaphobia | https://www.merriam-webster.com/dictionary/triskaidekaphobia
-- Add full episode bibliography and listener references here.
+- Vermont Historical Society — Glastenbury history collections | https://vermonthistory.org/
+- New England Historical Society — Bennington Triangle overview | https://newenglandhistoricalsociety.com/bennington-triangle-mysterious-disappearances-vermont/
+- Add newspapers, maps, archival records, and corrections here.

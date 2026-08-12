@@ -1,5 +1,3 @@
-
-
 /* =========================================================
    UNNORMAL STORIES — SEASON 3
    70s paranormal print + analog / early-web aesthetic
@@ -3620,5 +3618,75 @@ body.intro-running{
 
   .archive-snap .archive-episode-card{
     min-height:19rem;
+  }
+}
+
+
+/* =========================================================
+   V11.3 — FEATURED IMAGE SLOTS
+   Images appear only in the Latest and Random episode picks.
+   ========================================================= */
+
+.archive-pick{
+  display:grid;
+  grid-template-columns:clamp(4.5rem,6.5vw,6rem) minmax(0,1fr);
+  align-items:stretch;
+  gap:.7rem;
+  padding:.42rem;
+}
+
+.pick-image{
+  min-width:0;
+  overflow:hidden;
+  border:.05rem solid rgba(223,234,236,.24);
+  background:#090c0f;
+}
+
+.pick-image img{
+  width:100%;
+  height:100%;
+  min-height:4.5rem;
+  display:block;
+  object-fit:cover;
+  filter:saturate(.88) contrast(1.04);
+}
+
+.pick-content{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:.18rem .25rem .18rem 0;
+}
+
+.pick-content .pick-actions{
+  margin-top:auto;
+  padding-top:.38rem;
+}
+
+@media (max-width:44rem){
+  .archive-pick{
+    grid-template-columns:4.75rem minmax(0,1fr);
+    min-height:5.7rem;
+    padding:.4rem;
+  }
+
+  .pick-image img{
+    min-height:4.75rem;
+  }
+}
+
+@media (max-width:24rem){
+  .archive-pick{
+    grid-template-columns:4.1rem minmax(0,1fr);
+    gap:.5rem;
+  }
+
+  .pick-image img{
+    min-height:4.1rem;
+  }
+
+  .pick-actions{
+    gap:.5rem;
   }
 }

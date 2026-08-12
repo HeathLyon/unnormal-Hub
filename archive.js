@@ -8,9 +8,23 @@
 
 const ARCHIVE_FILES = [
   "archive/ep-13-unlucky-numbers.txt",
+  "archive/ep-12-waking-up-in-the-wrong-body.txt",
+  "archive/ep-11-circling-light.txt",
+  "archive/ep-10-the-vril-society.txt",
   "archive/ep-09-the-hum.txt",
-  "archive/ep-07-bennington-triangle.txt"
+  "archive/ep-08-the-mirror-isnt-a-mirror.txt",
+  "archive/ep-07-bennington-triangle.txt",
+  "archive/ep-06-the-wooden-hand.txt",
+  "archive/ep-05-three-red-eyes.txt",
+  "archive/ep-04-the-crystal-skulls.txt",
+  "archive/ep-03-the-lost-russian-prince.txt",
+  "archive/ep-02-it-walked-funny.txt",
+  "archive/ep-01-the-bermuda-triangle.txt"
 ];
+
+// Replace this image file whenever you are ready to add custom featured art.
+// An episode .txt file can optionally override it with: IMAGE: assets/file.webp
+const DEFAULT_FEATURE_IMAGE = "assets/archive-feature-placeholder.webp";
 
 // This fallback keeps the demo working when archive.html is opened directly
 // from a computer. On the live website, the matching .txt files are loaded.
@@ -172,6 +186,7 @@ function parseArchiveText(text, file) {
     duration: metadata.duration || "",
     tags,
     spotify: metadata.spotify || "",
+    image: metadata.image || DEFAULT_FEATURE_IMAGE,
     summary: sections.summary || "Summary pending.",
     findings,
     sources
@@ -185,7 +200,7 @@ async function loadEpisodeFile(file) {
     return parseArchiveText(await response.text(), file);
   } catch (error) {
     const fallback = ARCHIVE_FALLBACKS[file];
-    if (!fallback) throw error;
+    if (!fallback) return null;
     return parseArchiveText(fallback, file);
   }
 }
@@ -198,6 +213,60 @@ function formatDate(dateString) {
     day: "numeric",
     timeZone: "UTC"
   }).format(new Date(`${dateString}T00:00:00Z`));
+}
+
+function toISODuration(duration = "") {
+  const parts = duration.split(":").map(Number);
+  if (!parts.length || parts.some(Number.isNaN)) return undefined;
+
+  const seconds = parts.pop() || 0;
+  const minutes = parts.pop() || 0;
+  const hours = parts.pop() || 0;
+  return `PT${hours ? `${hours}H` : ""}${minutes ? `${minutes}M` : ""}${seconds || (!hours && !minutes) ? `${seconds}S` : ""}`;
+}
+
+function updatePodcastStructuredData() {
+  document.getElementById("archivePodcastSchema")?.remove();
+
+  const itemListElement = archiveState.episodes.map((episode, index) => {
+    const episodeData = {
+      "@type": "PodcastEpisode",
+      name: episode.title,
+      description: episode.summary,
+      episodeNumber: episode.episode,
+      datePublished: episode.published,
+      keywords: episode.tags.join(", "),
+      image: new URL(episode.image, window.location.href).href,
+      url: episode.spotify || new URL(`archive.html?episode=${encodeURIComponent(episode.slug)}`, window.location.href).href,
+      partOfSeries: {
+        "@type": "PodcastSeries",
+        "@id": "https://www.unnormalstories.com/#podcast",
+        name: "Unnormal Stories"
+      }
+    };
+
+    const isoDuration = toISODuration(episode.duration);
+    if (isoDuration) episodeData.duration = isoDuration;
+
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      item: episodeData
+    };
+  });
+
+  const schema = document.createElement("script");
+  schema.id = "archivePodcastSchema";
+  schema.type = "application/ld+json";
+  schema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Unnormal Stories Podcast Episodes",
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: itemListElement.length,
+    itemListElement
+  });
+  document.head.appendChild(schema);
 }
 
 function tagMarkup(tags, limit = tags.length) {
@@ -214,14 +283,19 @@ function episodeActions(episode, compact = false) {
 
 function discoverMarkup(episode, label) {
   return `
-    <div class="pick-topline">
-      <span class="pick-label">${escapeHTML(label)}</span>
-      <span>S${String(episode.season).padStart(2, "0")} / EP${String(episode.episode).padStart(2, "0")}</span>
+    <div class="pick-image">
+      <img src="${escapeHTML(episode.image)}" alt="${escapeHTML(episode.title)} featured artwork" />
     </div>
-    <h3>${escapeHTML(episode.title)}</h3>
-    <div class="pick-actions">
-      <a href="${escapeHTML(episode.spotify)}" target="_blank" rel="noopener noreferrer">Listen ↗</a>
-      <button type="button" data-open-episode="${escapeHTML(episode.slug)}">Open file</button>
+    <div class="pick-content">
+      <div class="pick-topline">
+        <span class="pick-label">${escapeHTML(label)}</span>
+        <span>S${String(episode.season).padStart(2, "0")} / EP${String(episode.episode).padStart(2, "0")}</span>
+      </div>
+      <h3>${escapeHTML(episode.title)}</h3>
+      <div class="pick-actions">
+        <a href="${escapeHTML(episode.spotify)}" target="_blank" rel="noopener noreferrer">Listen ↗</a>
+        <button type="button" data-open-episode="${escapeHTML(episode.slug)}">Open file</button>
+      </div>
     </div>
   `;
 }
@@ -382,8 +456,10 @@ function closeEpisodeFile() {
 async function initializeArchive() {
   try {
     archiveState.episodes = (await Promise.all(ARCHIVE_FILES.map(loadEpisodeFile)))
+      .filter(Boolean)
       .sort((a, b) => b.published.localeCompare(a.published));
 
+    updatePodcastStructuredData();
     archiveElements.total.textContent = String(archiveState.episodes.length).padStart(2, "0");
     renderTagFilters();
     renderDiscoverFeed();
